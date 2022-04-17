@@ -15,7 +15,16 @@ For adding large amounts of data to shopping cart in alkostore24.com
 Requires a list of product urls and quatities.
 
 1. Replace dummy data with your own in alkostore24bookmarklet.js
-2. Create a [bookmarklet](https://support.mozilla.org/en-US/kb/bookmarklets-perform-common-web-page-tasks) with code
-3. Navigate to alkostore24.com and click bookmarklet
-4. Refresh page
-5. Shopping cart should now have your items!
+2. Retrieve formKey by adding a product to shopping cart and inspecting the request sent in the network panel
+   Payload should look something like this:
+
+```
+product: <int>
+qty: <int>
+form_key: <string> // <-- copy this and replace "REPLACE_ME" in alkostore24bookmarklet.js
+```
+
+3. Create a [bookmarklet](https://support.mozilla.org/en-US/kb/bookmarklets-perform-common-web-page-tasks) with code,
+4. Navigate to alkostore24.com and click bookmarklet
+5. Refresh page
+6. Shopping cart should now have your items!

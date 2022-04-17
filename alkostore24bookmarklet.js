@@ -1,23 +1,18 @@
 javascript: (async () => { 
-    const products = [{
-        link: "https://alkostore24.com/fi/albani-mosaic-ipa.html",
-        count: 4
-    }, {
-        link: "https://alkostore24.com/fi/darguner-pilsener-0-5.html",
-        count: 2
-    }, {
-        link: "https://alkostore24.com/fi/speyburn-single-malt-10y.html",
-        count: 5
-    }, {
-        link: "https://alkostore24.com/fi/antiche-terre-venete-amarone-075.html",
-        count: 7
-    }, {
-        link: "https://alkostore24.com/fi/slots-pilsner.html",
-        count: 28
-    }, {
-        link: "https://alkostore24.com/fi/aura-4-5.html",
-        count: 23
-    }];
+    const products = [
+        {
+            link: "https://alkostore24.com/fi/lahden-erikois-neipa.html",
+            count: 44
+        },
+        {
+            link: "https://alkostore24.com/fi/lahden-erikois-ipa.html",
+            count: 1
+        },
+        {
+            link: "https://alkostore24.com/fi/abro-brygmestarens-premium-gold.html",
+            count: 6
+        }
+    ];
 
     let errors = [];
 
@@ -34,15 +29,17 @@ javascript: (async () => {
                 const available = dummy.querySelectorAll(".page-main .availability .instock").length > 0;
     
                 if(available){
+                    console.log("Product:", product.link);
+                    console.log("Count:", product.count);
                     const form = dummy.getElementsByClassName("product-add-form")[0].getElementsByTagName("form")[0];
                     const actionUrl = form.action;
         
-                    const product = actionUrl.split("/")[actionUrl.split("/").length - 2];
-                    const formKey = "MOLaQjXY8NhaRN2c";
+                    const productKey = actionUrl.split("/")[actionUrl.split("/").length - 2];
+                    const formKey = "REPLACE_ME";
                     const qty = product.count;
         
                     const formData = new FormData();
-                    formData.append('product', product);
+                    formData.append('product', productKey);
                     formData.append('form_key', formKey);
                     formData.append('qty', qty);
         
